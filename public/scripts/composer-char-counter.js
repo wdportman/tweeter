@@ -1,8 +1,7 @@
 $(document).ready(function () {
   $('#tweet-text').on("input",function (evt) {
-    const textArea = this;
-    const charsLeft = 140-textArea.value.length;
-    const counter = $(".counter");
+    const charsLeft = 140-$(this).val().length;
+    const counter = $(this).parent().find(".counter");
     counter.text(charsLeft);
     if (charsLeft < 0) {
       counter.css("color","tomato");
