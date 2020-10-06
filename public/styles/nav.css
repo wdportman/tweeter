@@ -1,6 +1,25 @@
-nav {
-  font-family: 'Bungee', cursive;
-  height: 100 px;
-  color: #FFFFF;
+#nav-bar {
+  position: sticky;
+  top: 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  height: 120px;
+  width:100%;
+
   background-color: #4056A1;
+
+  color: #FFFFFF;
+}
+
+#nav-bar .logo {
+  padding:1.5em;
+
+  font-family: 'Bungee', cursive;
+}
+
+#nav-bar .compose {
+  padding:1.5em;
 }
