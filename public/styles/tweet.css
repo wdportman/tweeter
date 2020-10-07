@@ -4,7 +4,18 @@
   padding: 10px;
   margin-top: 60px;
   border: solid;
-  box-shadow: 10px 10px;
+  filter: blur(.25px);
+  opacity: .75;
+}
+
+#tweet:hover {
+  opacity: 1;
+  filter: blur(0px);
+  box-shadow: 8px 8px #99ABE5;
+}
+
+#tweet:hover header .username {
+  opacity: 1;
 }
 
 #tweet header {
@@ -27,6 +38,7 @@
 
 #tweet header .username {
   color: #99ABE5;
+  opacity: 0;
 }
 
 #tweet p.tweetBody {
