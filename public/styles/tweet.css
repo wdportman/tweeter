@@ -1,0 +1,33 @@
+#tweet {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-top: 50px;
+  border: solid;
+}
+
+#tweet header {
+  height:2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#tweet header .picAndName {
+  display:flex;
+  align-items: center;
+}
+
+#tweet header .picAndName img {
+  height:2em;
+  margin-right:1em;
+}
+
+#tweet footer {
+  display: flex;
+  flex-direction: row;
+  border-top: solid;
+  padding-top: 5px;
+  justify-content: space-between;
+}
