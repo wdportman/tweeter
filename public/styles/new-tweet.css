@@ -1,5 +1,7 @@
 .new-tweet {
   padding-top: 25px;
+  width: 97%;
+  margin: auto;
 }
 
 .new-tweet form {

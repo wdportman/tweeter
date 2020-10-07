@@ -1,17 +1,18 @@
 #tweet {
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  margin-top: 50px;
+  padding: 10px;
+  margin-top: 60px;
   border: solid;
+  box-shadow: 10px 10px;
 }
 
 #tweet header {
-  height:2em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 15px;
 }
 
 #tweet header .picAndName {
@@ -24,10 +25,33 @@
   margin-right:1em;
 }
 
+#tweet header .username {
+  color: #99ABE5;
+}
+
+#tweet p.tweetBody {
+  padding-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  font-size: 26px;
+}
+
 #tweet footer {
+  border-top: solid;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+#tweet footer .content {
   display: flex;
   flex-direction: row;
-  border-top: solid;
-  padding-top: 5px;
   justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 16px;
+}
+
+#tweet .icons {
+  color: #4056A1;
 }
