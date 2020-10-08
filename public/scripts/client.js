@@ -32,7 +32,7 @@ const createTweetElement = function(tweet) {
 const renderTweets = function(tweets) {
   for (const tweet of tweets) {
     const $tweet = createTweetElement(tweet);
-    $('#tweets-container').append($tweet);
+    $('#tweets-container').prepend($tweet);
   }
 };
 
@@ -51,7 +51,15 @@ $(() => { //this is shorthand for "$(document).ready(function () {"; it means th
   const $form = $('form');
   $form.on('submit', function (event) {
     event.preventDefault();
-    const data = $form.serialize();
-    $.post("/tweets", data);
+    let input = $form.find("#tweet-input-text").val();
+    if (input.length > 140) {
+      alert("Please enter a shorter tweet!");
+    } else if (!input) {
+      alert("Please enter a tweet!");
+    } else {
+      const data = $form.serialize();
+      $.post("/tweets", data);
+      loadTweets();
+    }
   });
 })
