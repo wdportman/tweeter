@@ -43,16 +43,15 @@ const loadTweets = function() {
     }))
 }
 
-  loadTweets();
-
 
 $(() => { //this is shorthand for "$(document).ready(function () {"; it means the function won't be invoked until the page is loaded
 
+  loadTweets();
+
   const $form = $('form');
-  $form.on('submit', function(event) {
+  $form.on('submit', function (event) {
     event.preventDefault();
     const data = $form.serialize();
     $.post("/tweets", data);
   });
-
 })
