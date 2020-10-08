@@ -4,7 +4,15 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const createTweetElement = function(tweet) {
+//Function to make user-submitted content safe -- protect from cross-site scripting:
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+ const createTweetElement = function(tweet) {
+  const userSubmittedContent = escape(tweet.content.text);
   const tweetHTML =
     `<article class="tweet">
         <header>
@@ -14,7 +22,7 @@ const createTweetElement = function(tweet) {
           </div>
           <span class="username">${tweet.user.handle}</span>
         </header>
-        <p class="tweetBody">${tweet.content.text}</p>
+        <p class="tweetBody">${userSubmittedContent}</p>
         <footer>
           <div class="content">
             <span class="timestamp">${moment(tweet.created_at).fromNow()}</span>
@@ -55,24 +63,27 @@ const loadNewTweet = function() {
 $(() => { //this is shorthand for "$(document).ready(function () {"; it means the function won't be invoked until the page is loaded
 
   const $form = $('form');
+
   $form.on('submit', function (event) {
     event.preventDefault();
+    $("p.error").hide();
     let input = $form.find("#tweet-input-text").val();
     if (input.length > 140) {
-      alert("Please enter a shorter tweet!");
+      $("p.error").text("Please enter a shorter tweet!");
+      $("p.error").slideDown(0);
     } else if (!input) {
-      alert("Please enter a tweet!");
+      $("p.error").text("Please enter a tweet!");
+      $("p.error").slideDown(0);
     } else {
       const data = $form.serialize();
       $.post("/tweets", data)
         .then(() => {
           loadNewTweet();
-          $(this).find("#tweet-input-text").val(""); //reset textarea after submission
-          $(this).parent().find(".counter").text(140); //reset character count to 140 after submission
+          $form.find("#tweet-input-text").val(""); //reset textarea after submission
+          $form.parent().find(".counter").text(140); //reset character count to 140 after submission
         });
     }
   });
 })
 
-//Initial tweet-loading
 loadOriginalTweets();

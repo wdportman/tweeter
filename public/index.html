@@ -41,7 +41,7 @@
 
   <header id="header">
     <div class="image">
-      <img id="profilePic" src="/images/tweeterProfilePic.png">
+      <img src="/images/tweeterProfilePic.png">
     </div>
     <br>
     <div class="name">
@@ -52,6 +52,7 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
+      <p class="error"></p>
       <form method="POST" action="/tweets/">
         <label for="tweet-input-text">What are you humming about?</label>
         <textarea name="text" id="tweet-input-text" type=submit></textarea>
