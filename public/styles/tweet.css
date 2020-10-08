@@ -1,4 +1,4 @@
-#tweet {
+.tweet {
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -8,17 +8,17 @@
   opacity: .75;
 }
 
-#tweet:hover {
+.tweet:hover {
   opacity: 1;
   filter: blur(0px);
   box-shadow: 8px 8px #99ABE5;
 }
 
-#tweet:hover header .username {
+.tweet:hover header .username {
   opacity: 1;
 }
 
-#tweet header {
+.tweet header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -26,22 +26,22 @@
   padding: 15px;
 }
 
-#tweet header .picAndName {
+.tweet header .picAndName {
   display:flex;
   align-items: center;
 }
 
-#tweet header .picAndName img {
+.tweet header .picAndName img {
   height:2em;
   margin-right:1em;
 }
 
-#tweet header .username {
+.tweet header .username {
   color: #99ABE5;
   opacity: 0;
 }
 
-#tweet p.tweetBody {
+.tweet p.tweetBody {
   padding-top: 10px;
   padding-left: 30px;
   padding-right: 30px;
@@ -49,13 +49,13 @@
   font-size: 26px;
 }
 
-#tweet footer {
+.tweet footer {
   border-top: solid;
   padding-top: 10px;
   padding-bottom: 15px;
 }
 
-#tweet footer .content {
+.tweet footer .content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -64,6 +64,6 @@
   font-size: 16px;
 }
 
-#tweet .icons {
+.tweet .icons {
   color: #4056A1;
 }

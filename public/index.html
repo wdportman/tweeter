@@ -20,12 +20,11 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,700;1,300;1,700&display=swap"
     rel="stylesheet">
-
-  <!-- FontAwesome icons -->
-  <script src="https://kit.fontawesome.com/402fb25880.js" crossorigin="anonymous"></script>
-
+    
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/402fb25880.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js" integrity="sha512-Izh34nqeeR7/nwthfeE0SI3c8uhFSnqxV0sI9TvTcXiFJkMd6fB644O64BRq2P/LA/+7eRvCw4GmLsXksyTHBg==" crossorigin="anonymous"></script>
 
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
@@ -54,58 +53,15 @@
   <main class="container">
     <section class="new-tweet">
       <form method="POST" action="/tweets/">
-        <label for="tweet-text">What are you humming about?</label>
-        <textarea name="text" id="tweet-text"></textarea>
+        <label for="tweet-input-text">What are you humming about?</label>
+        <textarea name="text" id="tweet-input-text"></textarea>
         <div>
           <button type="submit">Tweet</button>
-          <output name="counter" class="counter" for="tweet-text">140</output>
+          <output name="counter" class="counter" for="tweet-input-text">140</output>
         </div>
       </form>
     </section>
-    <section>
-      <article id="tweet">
-        <header>
-          <div class="picAndName">
-            <img src="/images/tweeterProfilePic.png">
-            <span class="name">Will Portman</span>
-          </div>
-          <span class="username">@wdportman</span>
-        </header>
-        <p class="tweetBody">Hello world! This is my tweet. As you can see, it's pretty long, but it's still less than 140 characters. Will it wrap around? Yay!!!</p>
-        <footer>
-          <div class="content">
-            <span class="timestamp">1 hour ago</span>
-            <div class="icons">
-              <i class="fas fa-flag" class="icon"></i>
-              <i class="fas fa-retweet"class="icon"></i>
-              <i class="fas fa-heart"class="icon"></i>
-            </div>
-          </div>
-        </footer>
-      </article>
-    </section>
-    <section>
-      <article id="tweet">
-        <header>
-          <div class="picAndName">
-            <img src="/images/tweeterProfilePic.png">
-            <span class="name">Will Portman</span>
-          </div>
-          <span class="username">@wdportman</span>
-        </header>
-        <p class="tweetBody">Hello world! This is my tweet. As you can see, it's pretty long, but it's still less than
-          140 characters. Will it wrap around? Yay!!!</p>
-        <footer>
-          <div class="content">
-            <span class="timestamp">1 hour ago</span>
-            <div class="icons">
-              <i class="fas fa-flag" class="icon"></i>
-              <i class="fas fa-retweet"class="icon"></i>
-              <i class="fas fa-heart"class="icon"></i>
-            </div>
-          </div>
-        </footer>
-      </article>
+    <section id=tweets-container>
     </section>
   </main>
 </body>

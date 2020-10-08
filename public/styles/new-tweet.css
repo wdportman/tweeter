@@ -13,7 +13,7 @@
   font-weight: 700;
 }
 
-#tweet-text {
+#tweet-input-text {
   border-style: none;
   resize: none;
   background: transparent;
