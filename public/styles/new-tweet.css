@@ -35,3 +35,8 @@
   color: #FFFFFF;
   border-style: none;
 }
+
+.new-tweet p {
+  color: tomato;
+  font-style: italic;
+}
