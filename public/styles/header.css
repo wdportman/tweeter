@@ -3,10 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   height: 400px;
   width: 100%;
-
   background-color: #99ABE5;
   background-image: url("../images/cartographer.png");
 }
