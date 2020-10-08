@@ -54,9 +54,9 @@
     <section class="new-tweet">
       <form method="POST" action="/tweets/">
         <label for="tweet-input-text">What are you humming about?</label>
-        <textarea name="text" id="tweet-input-text"></textarea>
+        <textarea name="text" id="tweet-input-text" type=submit></textarea>
         <div>
-          <button type="submit">Tweet</button>
+          <button id="submitButton" type="submit">Tweet</button>
           <output name="counter" class="counter" for="tweet-input-text">140</output>
         </div>
       </form>
