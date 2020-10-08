@@ -67,6 +67,8 @@ $(() => { //this is shorthand for "$(document).ready(function () {"; it means th
       $.post("/tweets", data)
         .then(() => {
           loadNewTweet();
+          $(this).find("#tweet-input-text").val(""); //reset textarea after submission
+          $(this).parent().find(".counter").text(140); //reset character count to 140 after submission
         });
     }
   });
