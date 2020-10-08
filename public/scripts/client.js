@@ -36,17 +36,23 @@ const renderTweets = function(tweets) {
   }
 };
 
-const loadTweets = function() {
+const loadOriginalTweets = function() {
   $.getJSON("/tweets")
     .then((tweets => {
       renderTweets(tweets);
     }))
 }
 
+const loadNewTweet = function() {
+  $.getJSON("/tweets")
+    .then((tweets => {
+      const newTweet = createTweetElement(tweets[tweets.length-1]);
+      $('#tweets-container').prepend(newTweet);
+    }))
+}
+
 
 $(() => { //this is shorthand for "$(document).ready(function () {"; it means the function won't be invoked until the page is loaded
-
-  loadTweets();
 
   const $form = $('form');
   $form.on('submit', function (event) {
@@ -58,8 +64,13 @@ $(() => { //this is shorthand for "$(document).ready(function () {"; it means th
       alert("Please enter a tweet!");
     } else {
       const data = $form.serialize();
-      $.post("/tweets", data);
-      loadTweets();
+      $.post("/tweets", data)
+        .then(() => {
+          loadNewTweet();
+        });
     }
   });
 })
+
+//Initial tweet-loading
+loadOriginalTweets();
