@@ -1,5 +1,5 @@
 #nav-bar {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1;
   display: flex;
@@ -13,11 +13,16 @@
 }
 
 #nav-bar .logo {
-  padding:1.5em;
+  margin:1.5em;
   font-size: 36px;
   font-family: 'Bungee', cursive;
+  color: inherit;
+  text-decoration: none;
 }
 
 #nav-bar .compose {
-  padding:1.5em;
+  margin:1.5em;
+  border: none;
+  color: inherit;
+  background-color: inherit;
 }

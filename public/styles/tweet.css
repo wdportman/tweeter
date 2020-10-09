@@ -18,6 +18,10 @@
   opacity: 1;
 }
 
+.tweet:hover .icons {
+  opacity: 1;
+}
+
 .tweet header {
   display: flex;
   flex-direction: row;
@@ -66,4 +70,5 @@
 
 .tweet .icons {
   color: #4056A1;
+  opacity: 0;
 }
