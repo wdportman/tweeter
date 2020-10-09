@@ -48,15 +48,15 @@ const loadOriginalTweets = function() {
   $.getJSON("/tweets")
     .then((tweets => {
       renderTweets(tweets);
-    }))
+    }));
 };
 
 const loadNewTweet = function() {
   $.getJSON("/tweets")
     .then((tweets => {
-      const newTweet = createTweetElement(tweets[tweets.length-1]);
+      const newTweet = createTweetElement(tweets[tweets.length - 1]);
       $('#tweets-container').prepend(newTweet);
-    }))
+    }));
 };
 
 const handleSubmit = function(event) {
@@ -85,16 +85,16 @@ const handleSubmit = function(event) {
 $(() => { //this is shorthand for "$(document).ready(function () {"; it means the function won't be invoked until the page is loaded
   const $form = $('form');
 
-  $form.on('submit', function (event) {
+  $form.on('submit', function(event) {
     handleSubmit(event);
   });
 
-  $form.on('keypress', function (event) {
-    if (event.keyCode == 13) { //this is the "Enter"/"Return" key
+  $form.on('keypress', function(event) {
+    if (event.keyCode === 13) { //this is the "Enter"/"Return" key
       handleSubmit(event);
     }
-  })
+  });
 
-})
+});
 
 loadOriginalTweets();
