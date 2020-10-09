@@ -20,4 +20,23 @@ Tweeter is a simple, single-page Twitter "clone" to practice front-end developme
 
 ## Screenshots
 
+The app:
 !["The app"](https://github.com/wdportman/tweeter/blob/master/docs/App.png)
+
+Characters get counted in real-time as the user types a tweet:
+!["Character counter"](https://github.com/wdportman/tweeter/blob/master/docs/Character%20counter.png)
+
+Tweets get added to the feed as they are submitted, without a page refresh...thanks to Ajax!
+!["Update tweet feed"](https://github.com/wdportman/tweeter/blob/master/docs/Refresh.png)
+
+When you hover over a tweet, it displays some additional information and different styling:
+!["On hover"](https://github.com/wdportman/tweeter/blob/master/docs/On%20hover.png)
+
+Want to submit a tweet with >140 characters? No chance!
+![">140 characters error"](https://github.com/wdportman/tweeter/blob/master/docs/Error.png)
+
+Ditto for submitting an empty tweet:
+!["Empty tweet error"](https://github.com/wdportman/tweeter/blob/master/docs/Error2.png)
+
+Here is the mobile-friendly version of the app:
+!["Mobile-friendly"](https://github.com/wdportman/tweeter/blob/master/docs/Mobile-friendly.png)
