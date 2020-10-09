@@ -9,7 +9,7 @@ const escape =  function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}
+};
 
  const createTweetElement = function(tweet) {
   const userSubmittedContent = escape(tweet.content.text);
@@ -49,7 +49,7 @@ const loadOriginalTweets = function() {
     .then((tweets => {
       renderTweets(tweets);
     }))
-}
+};
 
 const loadNewTweet = function() {
   $.getJSON("/tweets")
@@ -57,33 +57,65 @@ const loadNewTweet = function() {
       const newTweet = createTweetElement(tweets[tweets.length-1]);
       $('#tweets-container').prepend(newTweet);
     }))
-}
+};
+
+const handleSubmit = function(event) {
+  const $form = $('form');
+  event.preventDefault();
+  $("p.error").hide();
+  let input = $form.find("#tweet-input-text").val();
+  if (input.length > 140) {
+    $("p.error").text("Please enter a shorter tweet!");
+    $("p.error").slideDown(0);
+  } else if (!input) {
+    $("p.error").text("Please enter a tweet!");
+    $("p.error").slideDown(0);
+  } else {
+    const data = $form.serialize();
+    $.post("/tweets", data)
+      .then(() => {
+        loadNewTweet();
+        $form.find("#tweet-input-text").val(""); //reset textarea after submission
+        $form.parent().find(".counter").text(140); //reset character count to 140 after submission
+      });
+  }
+};
 
 
 $(() => { //this is shorthand for "$(document).ready(function () {"; it means the function won't be invoked until the page is loaded
-
   const $form = $('form');
 
   $form.on('submit', function (event) {
-    event.preventDefault();
-    $("p.error").hide();
-    let input = $form.find("#tweet-input-text").val();
-    if (input.length > 140) {
-      $("p.error").text("Please enter a shorter tweet!");
-      $("p.error").slideDown(0);
-    } else if (!input) {
-      $("p.error").text("Please enter a tweet!");
-      $("p.error").slideDown(0);
-    } else {
-      const data = $form.serialize();
-      $.post("/tweets", data)
-        .then(() => {
-          loadNewTweet();
-          $form.find("#tweet-input-text").val(""); //reset textarea after submission
-          $form.parent().find(".counter").text(140); //reset character count to 140 after submission
-        });
-    }
+    handleSubmit(event);
   });
+
+  $form.on('keypress', function (event) {
+    if (event.keyCode == 13) { //this is the "Enter"/"Return" key
+      handleSubmit(event);
+    }
+  })
+
 })
 
 loadOriginalTweets();
+
+// $form.on('submit', function(event) {
+//   event.preventDefault();
+//   $("p.error").hide();
+//   let input = $form.find("#tweet-input-text").val();
+//   if (input.length > 140) {
+//     $("p.error").text("Please enter a shorter tweet!");
+//     $("p.error").slideDown(0);
+//   } else if (!input) {
+//     $("p.error").text("Please enter a tweet!");
+//     $("p.error").slideDown(0);
+//   } else {
+//     const data = $form.serialize();
+//     $.post("/tweets", data)
+//       .then(() => {
+//         loadNewTweet();
+//         $form.find("#tweet-input-text").val(""); //reset textarea after submission
+//         $form.parent().find(".counter").text(140); //reset character count to 140 after submission
+//       });
+//   }
+// });
