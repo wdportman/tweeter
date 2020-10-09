@@ -4,7 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-//Function to make user-submitted content safe -- protect from cross-site scripting:
+//The below function to make user-submitted content safe -- protect from cross-site scripting:
 const escape =  function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
@@ -98,24 +98,3 @@ $(() => { //this is shorthand for "$(document).ready(function () {"; it means th
 })
 
 loadOriginalTweets();
-
-// $form.on('submit', function(event) {
-//   event.preventDefault();
-//   $("p.error").hide();
-//   let input = $form.find("#tweet-input-text").val();
-//   if (input.length > 140) {
-//     $("p.error").text("Please enter a shorter tweet!");
-//     $("p.error").slideDown(0);
-//   } else if (!input) {
-//     $("p.error").text("Please enter a tweet!");
-//     $("p.error").slideDown(0);
-//   } else {
-//     const data = $form.serialize();
-//     $.post("/tweets", data)
-//       .then(() => {
-//         loadNewTweet();
-//         $form.find("#tweet-input-text").val(""); //reset textarea after submission
-//         $form.parent().find(".counter").text(140); //reset character count to 140 after submission
-//       });
-//   }
-// });
