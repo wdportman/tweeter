@@ -17,3 +17,7 @@ Tweeter is a simple, single-page Twitter "clone" to practice front-end developme
 - Chance 1.0.x or above
 - Font Awesome 4.7.x or above
 - Moment 2.29.1 or above
+
+## Screenshots
+
+!["The app"](https://github.com/wdportman/tweeter/blob/master/docs/App.png)
